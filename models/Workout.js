@@ -43,11 +43,13 @@ const WorkoutSchema = new Schema({
   totalDuration: Number
 });
 
-WorkoutSchema.method.setTotalDuration = function() {
-  let totalDuration = this.exercises[0].duration;
-  for (i = 1; i < this.exercises.length; i++) {
-    totalDuration += this.exercises[i].duration;
+WorkoutSchema.methods.setTotalDuration = function() {
+  let total = 0;
+  for (i = 0; i < this.exercises.length; i++) {
+    total += this.exercises[i].duration;
   }
+  this.totalDuration = total;
+  return this.totalDuration;
 }
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
