@@ -1,7 +1,7 @@
-const router = require("express").Router();
+const apiRouter = require("express").Router();
 const db = require("../models");
 
-router.get("/api/workouts", (req, res) => {
+apiRouter.get("/api/workouts", (req, res) => {
   db.Workout.find({})
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -33,4 +33,4 @@ router.get("/api/workouts", (req, res) => {
 //     });
 // });
 
-module.exports = router;
+module.exports = apiRouter;
