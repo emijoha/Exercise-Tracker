@@ -3,8 +3,13 @@ const db = require("../models");
 
 apiRouter.get("/api/workouts", (req, res) => {
   db.Workout.find({})
-    .then(dbWorkout => {
-      res.json(dbWorkout);
+    .then(dbWorkouts => {
+      // call custom method
+      dbWorkouts.forEach(dbWorkout => {
+        dbWorkout.setTotalDuration();
+      });
+      
+      res.json(dbWorkouts);
     })
     .catch(err => {
       res.json(err);
@@ -12,7 +17,6 @@ apiRouter.get("/api/workouts", (req, res) => {
 });
 
 // Push body (excerise data) to exercise array of a specific workout
-// WORKS when continuing workout, but NOT WORKING when creating new workout
 apiRouter.put("/api/workouts/:id", (req, res) => {
   db.Workout.updateOne(
     {
