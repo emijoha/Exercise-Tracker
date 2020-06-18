@@ -15,7 +15,7 @@ apiRouter.get("/api/workouts", (req, res) => {
 // apiRouter.put("/api/workouts/:id", (req, res) => {
 //   db.Workout.findByIdAndUpdate(
 //     req.params.id,
-//     { $push: {exercises: [req.body]}},
+//     { $push: {exercises: req.body}},
 //     function(err, result) {
 //       if (err) {
 //         console.log(err);
