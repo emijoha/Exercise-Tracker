@@ -7,24 +7,21 @@ apiRouter.get("/api/workouts", (req, res) => {
       res.json(dbWorkout);
     })
     .catch(err => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
 // Push body (excerise data) to exercise array of a specific workout
-// apiRouter.put("/api/workouts/:id", (req, res) => {
-//   db.Workout.findByIdAndUpdate(
-//     req.params.id,
-//     { $push: {exercises: req.body}},
-//     function(err, result) {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log(result);
-//       }
-//     }
-//   )
-// });
+apiRouter.put("/api/workouts/:id", (req, res) => {
+  db.Workout.updateOne(
+    {
+      _id: req.params.id
+    },{ 
+      $push: {exercises: req.body}
+    })
+    .then(dbWorkout => res.json(dbWorkout))
+    .catch(err => res.json(err))
+});
 
 // Create a new workout
 apiRouter.post("/api/workouts", (req, res) => {
