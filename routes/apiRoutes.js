@@ -12,6 +12,7 @@ apiRouter.get("/api/workouts", (req, res) => {
 });
 
 // Push body (excerise data) to exercise array of a specific workout
+// WORKS when continuing workout, but NOT WORKING when creating new workout
 apiRouter.put("/api/workouts/:id", (req, res) => {
   db.Workout.updateOne(
     {
@@ -27,10 +28,10 @@ apiRouter.put("/api/workouts/:id", (req, res) => {
 apiRouter.post("/api/workouts", (req, res) => {
   db.Workout.create(req.body)
   .then(dbWorkout => {
-    console.log(dbWorkout);
+    res.json(dbWorkout);
   })
   .catch(err => {
-    console.log(err);
+    res.json(err);
   });
 });
 
