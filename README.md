@@ -53,8 +53,10 @@
   2. Select whether you'd like to 'Continue Workout' or create a 'New Workout' (if no prior workouts were logges, your only option will be to create a new workout)
   3. Then, select the type of exercise you will perform for the workout.
   4. After selecting the type, new input fields will allow you to submit the details of the exercise depending on whether it is a resistance or cardio exercise.
-  5. When done with the details, click 'Complete' to add the exercise to your workout.
-  6. After this, the page displays the some basic updated stats for your last workout. To see stats for all workouts, click on 'Dashboard' in the upper-left.
+  5. When done with the details, click 'Add Exercise' to add the exercise to your workout.
+  6. The form inputs will clear, and you can add a different exercise and click 'Add Exercise' for each additional exercise you add to the workout.
+  7. When adding the last exercise of the workout, click 'Complete' instead of 'Add Exercise' to complete the workout and return to the main page.
+  6. To see stats for all workouts, click on 'Dashboard' in the upper-left.
   7. Click on 'Exercise Tracker' link in the upper left to return to the workout logger.
 
   ## License
