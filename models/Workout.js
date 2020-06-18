@@ -10,16 +10,16 @@ const WorkoutSchema = new Schema({
     {
       type: {
         type: String,
-        required: "Select the type of exercise for this workout"
+        required: false
       },
       name: {
         type: String,
         trim: true,
-        required: "The name of the exercise is required"
+        required: false
       },
       duration: {
         type: Number,
-        required: true
+        required: false
       },
       distance: {
         type: Number,
@@ -40,7 +40,10 @@ const WorkoutSchema = new Schema({
     }
   ],
 
-  totalDuration: Number
+  totalDuration: { 
+    type: Number, 
+    default: 0
+  }
 });
 
 WorkoutSchema.methods.setTotalDuration = function() {

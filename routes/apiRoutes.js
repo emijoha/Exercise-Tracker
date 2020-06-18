@@ -12,25 +12,29 @@ apiRouter.get("/api/workouts", (req, res) => {
 });
 
 // Push body (excerise data) to exercise array of a specific workout
-// router.post("/api/workouts/:id", ({ body }, res) => {
-//   db.Workout.add(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
+// apiRouter.put("/api/workouts/:id", ({ body }, res) => {
+//   let id = req.params.id;
+
 // });
 
-// router.get("/api/transaction", (req, res) => {
-//   Transaction.find({})
-//     .sort({ date: -1 })
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
+apiRouter.post("/api/workouts", ({ body }, res) => {
+  db.Workout.create(body)
+  .then(dbWorkout => {
+    console.log(dbWorkout);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+});
+
+// apiRouter.get("/api/workouts/range", (req, res) => {
+//   db.Workout.find({})
+//   .then(dbWorkout => {
+//     console.log(dbWorkout);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
 // });
 
 module.exports = apiRouter;
