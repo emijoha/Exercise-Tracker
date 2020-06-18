@@ -12,13 +12,23 @@ apiRouter.get("/api/workouts", (req, res) => {
 });
 
 // Push body (excerise data) to exercise array of a specific workout
-// apiRouter.put("/api/workouts/:id", ({ body }, res) => {
-//   let id = req.params.id;
-
+// apiRouter.put("/api/workouts/:id", (req, res) => {
+//   db.Workout.findByIdAndUpdate(
+//     req.params.id,
+//     { $push: {exercises: [req.body]}},
+//     function(err, result) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         console.log(result);
+//       }
+//     }
+//   )
 // });
 
-apiRouter.post("/api/workouts", ({ body }, res) => {
-  db.Workout.create(body)
+// Create a new workout
+apiRouter.post("/api/workouts", (req, res) => {
+  db.Workout.create(req.body)
   .then(dbWorkout => {
     console.log(dbWorkout);
   })
@@ -27,14 +37,15 @@ apiRouter.post("/api/workouts", ({ body }, res) => {
   });
 });
 
-// apiRouter.get("/api/workouts/range", (req, res) => {
-//   db.Workout.find({})
-//   .then(dbWorkout => {
-//     console.log(dbWorkout);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
-// });
+apiRouter.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({})
+  .then(dbWorkout => {
+    // returning in json for charts to use
+    res.json(dbWorkout);
+  })
+  .catch(err => {
+    res.json(err);
+  });
+});
 
 module.exports = apiRouter;
