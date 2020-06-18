@@ -12,7 +12,7 @@ apiRouter.get("/api/workouts", (req, res) => {
       res.json(dbWorkouts);
     })
     .catch(err => {
-      res.json(err);
+      res.json(err)
     });
 });
 
@@ -25,7 +25,9 @@ apiRouter.put("/api/workouts/:id", (req, res) => {
       $push: {exercises: req.body}
     })
     .then(dbWorkout => res.json(dbWorkout))
-    .catch(err => res.json(err))
+    .catch(err => {
+      res.json(err);
+    })
 });
 
 // Create a new workout
