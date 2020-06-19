@@ -15,6 +15,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useFindAndModify: false
 });
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:123user@ds111963.mlab.com:11963/heroku_68v6gh8s",
+  {
+    useMongoClient: true
+  }
+);
+
 // routes
 app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
