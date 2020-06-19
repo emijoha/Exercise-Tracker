@@ -35,7 +35,7 @@
 
   ## Installation
 
-  Visit the deployed application on [Heroku](github.com/emijoha).
+  Visit the deployed application on [Heroku](https://ancient-reef-01088.herokuapp.com/).
 
   To use this application locally:  
 
@@ -49,7 +49,7 @@
   ## Usage
 
   To start tracking your workouts with Exercise Tracker:  
-  1. Visit the [web application]().
+  1. Visit the [web application](https://ancient-reef-01088.herokuapp.com/).
   2. Select whether you'd like to 'Continue Workout' or create a 'New Workout' (if no prior workouts were logges, your only option will be to create a new workout)
   3. Then, select the type of exercise you will perform for the workout.
   4. After selecting the type, new input fields will allow you to submit the details of the exercise depending on whether it is a resistance or cardio exercise.
